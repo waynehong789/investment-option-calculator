@@ -13,7 +13,7 @@ function App() {
                 </header>
                 <Switch>
                     <Route exact path="/" component={login} />
-                    <Route path="/calculator" component={calculator} />
+                    <Route exact path="/calculator" component={calculator} />
                 </Switch>
                 <footer className="App-footer">&copy; Copyright 2021 Wayne Hong</footer>
             </div>
