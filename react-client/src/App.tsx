@@ -1,23 +1,21 @@
-import logo from './logo.svg';
+import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import './App.css';
 import login from './components/login';
-import { BrowserRouter as Router, Route } from 'react-router-dom';
+import calculator from './components/calculator';
 
 // eslint-disable-next-line @typescript-eslint/explicit-module-boundary-types
 function App() {
     return (
         <Router>
-            <Route path="/" component={login} />
-            <div className="App">
+            <div>
                 <header className="App-header">
-                    <img src={logo} className="App-logo" alt="logo" />
-                    <p>
-                        Edit <code>src/App.tsx</code> and save to reload.
-                    </p>
-                    <a className="App-link" href="https://reactjs.org" target="_blank" rel="noopener noreferrer">
-                        Learn React
-                    </a>
+                    <h1>Investment Option Calculator</h1>
                 </header>
+                <Switch>
+                    <Route exact path="/" component={login} />
+                    <Route path="/calculator" component={calculator} />
+                </Switch>
+                <footer className="App-footer">&copy; Copyright 2021 Wayne Hong</footer>
             </div>
         </Router>
     );

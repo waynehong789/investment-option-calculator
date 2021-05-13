@@ -1,5 +1,6 @@
+// eslint-disable-next-line @typescript-eslint/explicit-module-boundary-types
 const calculator = () => {
-    return <div></div>;
+    return <div>Calculator is Working</div>;
 };
 
 export default calculator;
