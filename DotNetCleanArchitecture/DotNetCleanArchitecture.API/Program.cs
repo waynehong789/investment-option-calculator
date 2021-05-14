@@ -17,14 +17,14 @@ namespace DotNetCleanArchitecture.API
     {
         public static void Main(string[] args)
         {
-            
+
             var host = CreateHostBuilder(args).Build();
             host.Run();
         }
 
         public static IHostBuilder CreateHostBuilder(string[] args) =>
             Host.CreateDefaultBuilder(args)
-                .ConfigureAppConfiguration((hostingContext, config)=>
+                .ConfigureAppConfiguration((hostingContext, config) =>
                 {
                     var env = hostingContext.HostingEnvironment;
 
@@ -32,7 +32,7 @@ namespace DotNetCleanArchitecture.API
                     config.AddEnvironmentVariables();
 
                     // add different env parameters
-                    if(! env.IsDevelopment())
+                    if (!env.IsDevelopment())
                     {
 
                     }
@@ -41,16 +41,16 @@ namespace DotNetCleanArchitecture.API
                         // config.AddUserSecrets(Assembly.Load(new AssemblyName(env.ApplicationName)));
                     }
                 })
-                .ConfigureLogging((hostingContext, logging)=>
+                .ConfigureLogging((hostingContext, logging) =>
                 {
                     logging.AddConsole();
                 })
                 .ConfigureWebHostDefaults(webBuilder =>
                 {
-                    webBuilder.ConfigureKestrel(options => 
+                    webBuilder.ConfigureKestrel(options =>
                     {
                         // Http
-                        options.Listen(IPAddress.Any, 80, listenOptions =>
+                        options.Listen(IPAddress.Any, 8080, listenOptions =>
                         {
                             listenOptions.Protocols = Microsoft.AspNetCore.Server.Kestrel.Core.HttpProtocols.Http1;
                         });

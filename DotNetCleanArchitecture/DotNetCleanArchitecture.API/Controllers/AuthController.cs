@@ -12,7 +12,7 @@ using Microsoft.Extensions.Logging;
 namespace DotNetCleanArchitecture.API.Controllers
 {
     [ApiController]
-    [Route("api/auth")]
+    [Route("api")]
     public class AuthController : ControllerBase
     {
         private IUserService _userService;
