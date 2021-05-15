@@ -1,9 +1,9 @@
-export interface AuthenticateRequest {
+export interface IAuthenticateRequest {
     userName: string;
     password: string;
 }
 
-export interface AuthenticateResponse {
+export interface IAuthenticateResponse {
     id: string;
     firstName: string;
     lastName: string;
@@ -16,5 +16,44 @@ export interface ILoginState {
     data: {
         userName: string;
         token: string;
+    };
+}
+
+export interface ICalculateAmounts {
+    investmentAmount: number;
+    availableAmount: number;
+    usedAmount: number;
+}
+
+export interface IInvestmentOption {
+    option: IOption;
+    percentage: number;
+}
+
+export interface IOption {
+    value: string;
+    label: string;
+}
+
+export interface IInvestmentOptionsState {
+    amounts: ICalculateAmounts;
+    options: IInvestmentOption[];
+}
+
+export interface ICalculationRequest {
+    investmentAmount: number;
+    selectedOptions: IInvestmentOption[];
+}
+
+export interface ICalculationResponse {
+    return: number;
+    fees: number;
+}
+
+export interface ICalculatorState {
+    isCalculated: boolean;
+    data: {
+        return: number;
+        fees: number;
     };
 }

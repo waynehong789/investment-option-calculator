@@ -4,7 +4,7 @@ using Shared.Core.Entities;
 
 namespace DotNetCleanArchitecture.API.Models
 {
-    public class AuthenticateResponse
+    public class IAuthenticateResponse
     {
         public int Id { get; set; }
         public string FirstName { get; set; }
@@ -13,7 +13,7 @@ namespace DotNetCleanArchitecture.API.Models
         public string Token { get; set; }
 
 
-        public AuthenticateResponse(User user, string token)
+        public IAuthenticateResponse(User user, string token)
         {
             Id = user.Id;
             FirstName = user.FirstName;

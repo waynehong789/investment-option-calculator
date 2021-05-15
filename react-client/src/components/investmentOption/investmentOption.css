@@ -1,0 +1,18 @@
+.tab-item {
+    margin: 30px;
+
+}
+
+.tab-item-lable {
+    font-size: larger;
+    font-weight: bold;
+    margin: 30px;
+}
+
+.options-card {
+    margin: 30px;
+}
+
+.option-selector {
+    min-width: 15vw;
+}

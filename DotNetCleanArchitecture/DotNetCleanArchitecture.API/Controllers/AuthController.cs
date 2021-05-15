@@ -27,7 +27,7 @@ namespace DotNetCleanArchitecture.API.Controllers
         [AllowAnonymous]
         [HttpPost]
         [Route("authenticate")]
-        public async Task<IActionResult> Authenticate([FromBody] AuthenticateRequest request)
+        public async Task<IActionResult> Authenticate([FromBody] IAuthenticateRequest request)
         {
             var validator = new AuthenticateValidator();
             var validationResult = await validator.ValidateAsync(request);

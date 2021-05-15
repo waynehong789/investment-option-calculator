@@ -2,7 +2,7 @@ using System.ComponentModel.DataAnnotations;
 
 namespace DotNetCleanArchitecture.API.Models
 {
-    public class AuthenticateRequest
+    public class IAuthenticateRequest
     {
         [Required]
         public string Username { get; set; }

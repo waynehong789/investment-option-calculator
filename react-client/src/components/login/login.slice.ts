@@ -1,5 +1,5 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
-import { AuthenticateResponse, ILoginState } from '../../interfaces';
+import { IAuthenticateResponse, ILoginState } from '../../interfaces';
 import type { RootState } from '../../redux/store';
 
 // Define the initial state using that type
@@ -17,7 +17,7 @@ export const loginSlice = createSlice({
     initialState,
     reducers: {
         // Use the PayloadAction type to declare the contents of `action.payload`
-        setUser: (state, action: PayloadAction<AuthenticateResponse>) => {
+        setUser: (state, action: PayloadAction<IAuthenticateResponse>) => {
             state.loaded = true;
             state.data.userName = action.payload.username;
             state.data.token = action.payload.token;

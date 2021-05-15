@@ -1,9 +1,13 @@
 import { configureStore } from '@reduxjs/toolkit';
 import usersReducer from '../components/login/login.slice';
+import investmentReducer from '../components/investmentOption/investmentOption.slice';
+import calculatorReducer from '../components/calculator/calculator.slice';
 
 export const store = configureStore({
     reducer: {
         user: usersReducer,
+        investment: investmentReducer,
+        calculator: calculatorReducer,
     },
 });
 

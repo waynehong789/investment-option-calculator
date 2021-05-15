@@ -24,18 +24,23 @@
   color: white;
 }
 
+.App-body {
+  position: relative;
+  overflow-y: auto;
+}
+
 footer {
   position: relative;
-  min-height: 10vh;
+  min-height: 5vh;
   width: 100%;
   background-color: #333333;
 }
 
 .App-footer {
-  position: absolute;
+  position: fixed;
   width: 100%;
   color: #fff;
-  line-height: 40px;
+  line-height: 20px;
   font-size: 0.7em;
   text-align: center;
   bottom: 0;

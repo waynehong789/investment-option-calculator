@@ -3,8 +3,8 @@ import FormControl from '@material-ui/core/FormControl';
 import InputLabel from '@material-ui/core/InputLabel';
 import Input from '@material-ui/core/Input';
 // import React from 'react';
-// import { useHistory } from 'react-router-dom';
-import { AuthenticateRequest, AuthenticateResponse } from '../../interfaces';
+import { useHistory } from 'react-router-dom';
+import { IAuthenticateRequest, IAuthenticateResponse } from '../../interfaces';
 import './login.css';
 // import { ILoginState } from '../../interfaces';
 import axios from 'axios';
@@ -15,8 +15,8 @@ import { setUser } from './login.slice';
 //     const apiUrl = 'api/login';
 // }
 
-export default function login(): JSX.Element {
-    // const history = useHistory();
+export default function Login(): JSX.Element {
+    const history = useHistory();
     // const handleClick = () => history.push('/calculator');
     // const initLoginState: ILoginState = {
     //     loaded: false,
@@ -38,7 +38,7 @@ export default function login(): JSX.Element {
     async function submitHandler() {
         try {
             if (enteredUserName && enteredPassword) {
-                const request: AuthenticateRequest = {
+                const request: IAuthenticateRequest = {
                     userName: enteredUserName,
                     password: enteredPassword,
                 };
@@ -52,8 +52,10 @@ export default function login(): JSX.Element {
                 };
                 const response = await axios.post(apiUrl, request, config);
                 console.log(response);
-                const authenticateResponse: AuthenticateResponse = response.data;
+                const authenticateResponse: IAuthenticateResponse = response.data;
                 store.dispatch(setUser(authenticateResponse));
+                const path = `calculator`;
+                history.push(path);
             }
         } catch (err) {
             console.log(`User login failed with username: ${enteredUserName}`);

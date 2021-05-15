@@ -3,7 +3,7 @@ using FluentValidation;
 
 namespace DotNetCleanArchitecture.API.Validators
 {
-    public class AuthenticateValidator : AbstractValidator<AuthenticateRequest>
+    public class AuthenticateValidator : AbstractValidator<IAuthenticateRequest>
     {
         public AuthenticateValidator()
         {

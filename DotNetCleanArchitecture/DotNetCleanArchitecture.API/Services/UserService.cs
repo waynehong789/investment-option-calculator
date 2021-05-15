@@ -14,7 +14,7 @@ namespace DotNetCleanArchitecture.API.Services
 {
     public interface IUserService
     {
-        AuthenticateResponse Authenticate(AuthenticateRequest model);
+        IAuthenticateResponse Authenticate(IAuthenticateRequest model);
         IEnumerable<User> GetAll();
         User GetById(int id);
     }
@@ -34,7 +34,7 @@ namespace DotNetCleanArchitecture.API.Services
             _appSettings = appSettings.Value;
         }
 
-        public AuthenticateResponse Authenticate(AuthenticateRequest model)
+        public IAuthenticateResponse Authenticate(IAuthenticateRequest model)
         {
             var user = _users.SingleOrDefault(x => x.Username == model.Username && x.Password == model.Password);
 
@@ -44,7 +44,7 @@ namespace DotNetCleanArchitecture.API.Services
             // authentication successful so generate jwt token
             var token = generateJwtToken(user);
 
-            return new AuthenticateResponse(user, token);
+            return new IAuthenticateResponse(user, token);
         }
 
         public IEnumerable<User> GetAll()

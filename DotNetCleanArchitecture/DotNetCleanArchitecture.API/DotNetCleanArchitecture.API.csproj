@@ -29,9 +29,9 @@
     <ProjectReference Include="..\Shared\Shared.Application\Shared.Application.csproj" />
     <ProjectReference Include="..\Shared\Shared.Core\Shared.Core.csproj" />
     <ProjectReference Include="..\Shared\Shared.Infrastructure\Shared.Infrastructure.csproj" />
-    <ProjectReference Include="..\Notes\Notes.Application\Notes.Application.csproj" />
-    <ProjectReference Include="..\Notes\Notes.Core\Notes.Core.csproj" />
-    <ProjectReference Include="..\Notes\Notes.Infrastructure\Notes.Infrastructure.csproj" />
+    <ProjectReference Include="..\Calculator\Calculator.Application\Calculator.Application.csproj" />
+    <ProjectReference Include="..\Calculator\Calculator.Core\Calculator.Core.csproj" />
+    <ProjectReference Include="..\Calculator\Calculator.Infrastructure\Calculator.Infrastructure.csproj" />
   </ItemGroup>
 
 </Project>
