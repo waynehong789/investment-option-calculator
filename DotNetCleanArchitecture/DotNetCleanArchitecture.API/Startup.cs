@@ -1,25 +1,18 @@
-using Customers.Application;
-using Customers.Infrastructure;
 using DotNetCleanArchitecture.API.Filters;
 using DotNetCleanArchitecture.API.Helpers;
 using DotNetCleanArchitecture.API.Services;
 using FluentValidation.AspNetCore;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
-using Microsoft.AspNetCore.HttpsPolicy;
-using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
-using Microsoft.Extensions.Logging;
 using Polly;
 using Polly.Extensions.Http;
 using System;
-using System.Collections.Generic;
-using System.Linq;
 using System.Net.Http;
-using System.Threading.Tasks;
-using MongoDB.Driver;
+using Calculator.Application;
+using Calculator.Infrastructure;
 
 namespace DotNetCleanArchitecture.API
 {
@@ -42,8 +35,8 @@ namespace DotNetCleanArchitecture.API
             services.AddScoped<IUserService, UserService>();
 
             // add Microservices (Application layer & Infrastructure layer)
-            services.AddCustomersApplication();
-            services.AddCustomersInfrastructure(Configuration);
+            services.AddCalculatorApplication();
+            services.AddCalculatorInfrastructure(Configuration);
 
             // configure strongly typed settings object
             services.Configure<AppSettings>(Configuration.GetSection("AppSettings"));

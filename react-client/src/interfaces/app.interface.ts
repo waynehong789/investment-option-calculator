@@ -46,14 +46,14 @@ export interface ICalculationRequest {
 }
 
 export interface ICalculationResponse {
-    return: number;
+    investmentReturn: number;
     fees: number;
 }
 
 export interface ICalculatorState {
     isCalculated: boolean;
     data: {
-        return: number;
+        investmentReturn: number;
         fees: number;
     };
 }

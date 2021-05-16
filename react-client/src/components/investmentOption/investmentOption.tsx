@@ -9,7 +9,7 @@ import DeleteForeverIcon from '@material-ui/icons/DeleteForever';
 import { ICalculateAmounts, IInvestmentOption, IOption } from '../../interfaces';
 
 import './investmentOption.css';
-import { INVESTMENT_OPTIONS_TYPES } from '../../contants/investmentOptionContants';
+import { INVESTMENT_OPTIONS_TYPES } from '../../constants/investmentOptionConstants';
 import { store } from '../../redux/store';
 import { setAmounts, setOptions } from './investmentOption.slice';
 

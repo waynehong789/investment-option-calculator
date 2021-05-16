@@ -9,10 +9,12 @@ import { ICalculationRequest, ICalculationResponse } from '../../interfaces';
 import axios from 'axios';
 import { store } from '../../redux/store';
 import { setCalcultionResult } from './calculator.slice';
+import { selectUserToken } from '../login/login.slice';
 
 export default function calculator(): JSX.Element {
     const amounts = useAppSelector(selectAmounts);
     const options = useAppSelector(selectOptions);
+    const token = useAppSelector(selectUserToken);
 
     const [isCalculatorFailed, setIsCalculatorFailed] = useState<boolean>(false);
     async function handleSelect(key: string | null): Promise<void> {
@@ -26,9 +28,8 @@ export default function calculator(): JSX.Element {
             }
 
             // verify investment options
-            const isVaildOptions = options.findIndex((op) => op.option.value !== 'Select' && op.percentage > 0) >= 0;
-
-            if (!isVaildOptions) {
+            const vaildOptions = options.filter((op) => op.option.value !== 'Select' && op.percentage > 0);
+            if (vaildOptions.length <= 0) {
                 setIsCalculatorFailed(true);
                 return;
             }
@@ -37,19 +38,20 @@ export default function calculator(): JSX.Element {
 
             const calculationRequest: ICalculationRequest = {
                 investmentAmount: amounts.investmentAmount,
-                selectedOptions: options,
+                selectedOptions: vaildOptions,
             };
 
             console.log(calculationRequest);
-            const apiUrl = `/api/authenticate`;
+            const apiUrl = `/api/calculator`;
             const config = {
                 headers: {
                     'Content-Type': 'application/json',
+                    Authorization: `Bearer ${token}`,
                 },
             };
             const response = await axios.post(apiUrl, calculationRequest, config);
             console.log(response);
-            const calculationResponse: ICalculationResponse = response.data;
+            const calculationResponse: ICalculationResponse = response.data.payload;
             store.dispatch(setCalcultionResult(calculationResponse));
         }
     }

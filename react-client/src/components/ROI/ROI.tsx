@@ -4,9 +4,13 @@ import FormControl from '@material-ui/core/FormControl';
 // import Input from '@material-ui/core/Input';
 import FilledInput from '@material-ui/core/FilledInput';
 import InputAdornment from '@material-ui/core/InputAdornment';
+import { useAppSelector } from '../../redux/hooks';
+import { selectCalcultionResult } from '../calculator/calculator.slice';
+import './ROI.css';
 
 export default function ROI(): JSX.Element {
-    let projectedReturn = '0';
+    const calculationResult = useAppSelector(selectCalcultionResult);
+
     return (
         <div className="mt-3">
             <Card className="mb-2 options-card">
@@ -19,7 +23,8 @@ export default function ROI(): JSX.Element {
                                 <FormControl disabled variant="filled">
                                     <FilledInput
                                         id="projectedReturn"
-                                        value={projectedReturn}
+                                        className="roi-item"
+                                        value={calculationResult.investmentReturn}
                                         endAdornment={<InputAdornment position="end">AUD</InputAdornment>}
                                     />
                                 </FormControl>
@@ -30,8 +35,9 @@ export default function ROI(): JSX.Element {
                             <div className="tab-item">
                                 <FormControl disabled variant="filled">
                                     <FilledInput
-                                        id="projectedReturn"
-                                        value={projectedReturn}
+                                        id="fees"
+                                        className="roi-item"
+                                        value={calculationResult.fees}
                                         endAdornment={<InputAdornment position="end">USD</InputAdornment>}
                                     />
                                 </FormControl>

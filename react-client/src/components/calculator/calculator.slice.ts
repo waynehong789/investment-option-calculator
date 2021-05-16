@@ -6,7 +6,7 @@ import type { RootState } from '../../redux/store';
 const initialState: ICalculatorState = {
     isCalculated: false,
     data: {
-        return: 0,
+        investmentReturn: 0,
         fees: 0,
     },
 };
@@ -19,7 +19,7 @@ export const calculatorSlice = createSlice({
         // Use the PayloadAction type to declare the contents of `action.payload`
         setCalcultionResult: (state, action: PayloadAction<ICalculationResponse>) => {
             state.isCalculated = true;
-            state.data.return = action.payload.return;
+            state.data.investmentReturn = action.payload.investmentReturn;
             state.data.fees = action.payload.fees;
         },
     },
