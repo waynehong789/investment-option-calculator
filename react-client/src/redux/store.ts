@@ -1,6 +1,6 @@
 import { configureStore } from '@reduxjs/toolkit';
 import usersReducer from '../components/login/login.slice';
-import investmentReducer from '../components/investmentOption/investmentOption.slice';
+import investmentReducer from '../components/calculator/investmentOption/investmentOption.slice';
 import calculatorReducer from '../components/calculator/calculator.slice';
 
 export const store = configureStore({

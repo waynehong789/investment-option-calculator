@@ -4,8 +4,8 @@ import FormControl from '@material-ui/core/FormControl';
 // import Input from '@material-ui/core/Input';
 import FilledInput from '@material-ui/core/FilledInput';
 import InputAdornment from '@material-ui/core/InputAdornment';
-import { useAppSelector } from '../../redux/hooks';
-import { selectCalcultionResult } from '../calculator/calculator.slice';
+import { useAppSelector } from '../../../redux/hooks';
+import { selectCalcultionResult } from '../calculator.slice';
 import './ROI.css';
 
 export default function ROI(): JSX.Element {

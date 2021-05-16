@@ -1,6 +1,6 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
-import { ICalculateAmounts, IInvestmentOption, IInvestmentOptionsState } from '../../interfaces';
-import type { RootState } from '../../redux/store';
+import { ICalculateAmounts, IInvestmentOption, IInvestmentOptionsState } from '../../../interfaces';
+import type { RootState } from '../../../redux/store';
 
 // Define the initial state using that type
 const initialState: IInvestmentOptionsState = {

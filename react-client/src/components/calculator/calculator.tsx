@@ -1,9 +1,9 @@
 import { Tab, Tabs } from 'react-bootstrap';
 import './calculator.css';
-import ROI from '../ROI/ROI';
-import InvestmentOption from '../investmentOption/investmentOption';
+import ROI from './ROI/ROI';
+import InvestmentOption from './investmentOption/investmentOption';
 import { useAppSelector } from '../../redux/hooks';
-import { selectAmounts, selectOptions } from '../investmentOption/investmentOption.slice';
+import { selectAmounts, selectOptions } from './investmentOption/investmentOption.slice';
 import { useState } from 'react';
 import { ICalculationRequest, ICalculationResponse } from '../../interfaces';
 import axios from 'axios';
@@ -18,6 +18,10 @@ export default function calculator(): JSX.Element {
 
     const [isCalculatorFailed, setIsCalculatorFailed] = useState<boolean>(false);
     async function handleSelect(key: string | null): Promise<void> {
+        if (key === 'option') {
+            setIsCalculatorFailed(false);
+        }
+
         if (key === 'ROI') {
             console.log('amounts', amounts);
             console.log('options', options);

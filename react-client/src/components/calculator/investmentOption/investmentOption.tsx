@@ -6,11 +6,11 @@ import Select from 'react-select';
 import { IconButton } from '@material-ui/core';
 import AddBoxIcon from '@material-ui/icons/AddBox';
 import DeleteForeverIcon from '@material-ui/icons/DeleteForever';
-import { ICalculateAmounts, IInvestmentOption, IOption } from '../../interfaces';
+import { ICalculateAmounts, IInvestmentOption, IOption } from '../../../interfaces';
 
 import './investmentOption.css';
-import { INVESTMENT_OPTIONS_TYPES } from '../../constants/investmentOptionConstants';
-import { store } from '../../redux/store';
+import { INVESTMENT_OPTIONS_TYPES } from '../../../constants/investmentOptionConstants';
+import { store } from '../../../redux/store';
 import { setAmounts, setOptions } from './investmentOption.slice';
 
 export default function InvestmentOption(): JSX.Element {
